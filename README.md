@@ -2,6 +2,8 @@
 
 Technical Task provided by Huel to automate the completion of the survey on their site.
 
+![image](https://github.com/user-attachments/assets/01d9a2fc-9925-4ae1-91fd-84bec0b3e62e)
+
 # Requirements
 
 - Write an automation script using any framework of your choice that simulates navigating the Huel
