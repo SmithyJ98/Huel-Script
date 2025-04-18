@@ -88,7 +88,7 @@ const { chromium } = require("playwright");
 
     await answerSingleChoiceQuestion(page, question4Answers);
 
-    // Locate and click the 'No thanks, show me the results.' link
+    // Locate and click the 'No thanks, show me the results' link
     await page
       .getByRole("button", { name: "No thanks, show me the results" })
       .click();
@@ -140,7 +140,7 @@ const { chromium } = require("playwright");
   } finally {
     // Close the browser
     await browser.close();
-    console.log("Run complete");
+    console.log("Run complete. Browser closed.");
   }
 })();
 
@@ -149,9 +149,14 @@ async function answerMultipleChoiceQuestion(page, answers) {
   // Randomize how many answers to pick (between 1 and the total number of answers)
   const numberOfAnswersToPick = Math.floor(Math.random() * answers.length) + 1;
 
-  // Shuffle the answers array and pick the first `numberOfAnswersToPick` answers
-  const shuffledAnswers = answers.sort(() => 0.5 - Math.random());
-  const selectedAnswers = shuffledAnswers.slice(0, numberOfAnswersToPick);
+  // Pick random answers
+  const selectedAnswers = [];
+  while (selectedAnswers.length < numberOfAnswersToPick) {
+    const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+    if (!selectedAnswers.includes(randomAnswer)) {
+      selectedAnswers.push(randomAnswer);
+    }
+  }
   console.log("Selected answers:", selectedAnswers);
 
   // Click each selected answer
