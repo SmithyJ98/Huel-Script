@@ -29,7 +29,7 @@ Technical Task provided by Huel to automate the completion of the survey on thei
 ```bash
 
 git clone https://github.com/SmithyJ98/Huel-Script
-cd project-name
+cd Huel-Script
 
 ```
 
